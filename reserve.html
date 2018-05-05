@@ -23,9 +23,9 @@
           <p>Book your set before its gone!</p>
         </div>
         <div class="card-action center">
-          <a href="#">View Tables</a>
-          <a href="#">Home</a>
-          <a href="#">Make a Reservation</a>
+          <a href="/tables">View Tables</a>
+          <a href="/">Home</a>
+          <a href="/reserve">Make a Reservation</a>
         </div>
       </div>
     </div>
@@ -52,19 +52,20 @@
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input placeholder="Phone (404) 000-0000" id="phone" type="text" class="validate">
+                      <input placeholder="Phone (404) 000-0000" id="phonenumber" type="text" class="validate">
                       <label for="phone">Phone Number</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input placeholder="Enter a Unique ID" id="unique_id" type="text" class="validate">
+                      <input placeholder="Enter a Unique ID" id="uniqueid" type="text" class="validate">
                       <label for="unique_id">Unique ID</label>
                     </div>
                   </div>
                   </div>
 
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <button class="btn waves-effect waves-light" type="submit" name="action
+                  ">Submit
                     <i class="material-icons right">send</i>
                   </button>
                         
@@ -85,10 +86,10 @@
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
       searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/characters/" + searchedCharacter, function(data) {
+      $.get("/api/reservations/" + searchedCharacter, function(data) {
         console.log(data);
         if (data) {
-          $("#stats").show();
+          $("#uniqueid").show();
           $("#name").text(data.name);
           $("#role").text(data.role);
           $("#age").text(data.age);
@@ -102,9 +103,14 @@
     });
   </script>
 
+<footer class="page-footer">
+  <div class="footer-copyright">
+  <a class="grey-text text-lighten-4 right" href="/api/reservations">All Reservations JSON</a>
+  </div>
+</footer>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script type="text/javascript" src = 'server.js'></script>
 </body>
-</html>
+</html
