@@ -17,43 +17,71 @@ app.use(bodyParser.json());
 // =============================================================
 let reservations = [
   {
-    routeName: "yoda",
+    uniqueID:'01',
+    name: "Allen",
+    phoneNumber: "404-400-500",
+    email: 'allen@gmail.com'
+  },
+  {
+    uniqueID:'02',
+    name: "Susan",
+    phoneNumber: "404-500-400",
+    email: 'susan@gmail.com'
+  },
+  {
+    uniqueID:'03',
+    name: "Eddie",
+    phoneNumber: "404-500-600",
+    email: 'eddie@gmail.com'
+  },
+  {
+    uniqueID:'04',
     name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
+    phoneNumber: "400-400-400",
+    email: 'yoda@gmail.com'
+  },
+  {
+    uniqueID:'05',
+    name: "Kobe",
+    phoneNumber: "400-900-800",
+    email: 'kobe@gmail.com'
   },
 ];
 
 let waitlist = [
   {
+    uniqueID:'06',
+    name: "Unlucky",
+    phoneNumber: "400-100-800",
+    email: 'theluckisnotwithme@gmail.com'
   }
 ];
 
 // Routes
 // =============================================================
 
-// Basic route 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
-});
-
-// Displays all characters
-app.get("/api/characters", function(req, res) {
-  return res.json(characters);
+// Displays all reservations
+app.get("/api/reservations", function(req, res) {
+  return res.json(reservations);
 });
 
 // Displays a single character, or returns false
-app.get("/api/characters/:character", function(req, res) {
+app.get("/api/reservations/:reservation", function(req, res) {
   var chosen = req.params.character;
 
   console.log(chosen);
 
-  for (var i = 0; i < characters.length; i++) {
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
+  for (var i = 0; i < reservations.length; i++) {
+    if (chosen === reservations[i].routeName) {
+      return res.json(reservations[i]);
     }
   }
 
   return res.json(false);
+});
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
 });
