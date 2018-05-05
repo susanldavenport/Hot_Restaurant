@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+let rorw = true;
 
 // Sets up the Express App
 // =============================================================
@@ -104,14 +105,16 @@ app.post("/api/reservations", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newResrv = req.body;
-  newResrv.routeName = newResrv.name.replace(/\s+/g, "").toLowerCase();
+  // newResrv.Name = newResrv.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newResrv);
 
   if (reservations.length < 4){
+    rorw = true;
     reservations.push(newResrv);
     res.json(newResrv);
   } else {
+    rorw = false;
     waitlist.push(newResrv);
     console.log(waitlist);
   }
@@ -122,3 +125,10 @@ app.post("/api/reservations", function(req, res) {
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+// Clear the arrays
+// =============================================================
+  function clearArray(){
+    reservations = [];
+    reservations.push(waitlist);
+  }
