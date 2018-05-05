@@ -91,22 +91,22 @@
 
       // Question: What does this code do??
       $.post("/api/reservations", newResrv)
-        .then(function(data) {
-          console.log("reserve.html", data);
-          alert("Adding reservation...");
-        });
-
-      resWait(rorw); 
+      .then(function(data) {
+        console.log("reserve.html", data);
+        alert("Adding reservation...");
+      });
+      
+      $.get("/api/rorw", function resWait(req, res){
+        if (rorw === true){
+        M.toast ({html: 'Your reservation is confirmed! Bon Apetit!'})
+        } else {
+        M.toast({html: 'Bummer! No Tables. To the Waitlist with you!'})
+        }
+      };
     });
 
-  function resWait(rorw) {
-    if (rorw === true){
-    M.toast ({html: 'Your reservation is confirmed! Bon Apetit!'})
-    } else {
-    M.toast({html: 'Bummer! No Tables. To the Waitlist with you!'})
-    }
-    console.log(rorw);
-  };
+  resWait();
+
   </script>
 
 <footer class="page-footer">
