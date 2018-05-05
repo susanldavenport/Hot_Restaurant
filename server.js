@@ -104,7 +104,7 @@ app.post("/api/reservations", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newResrv = req.body;
-  newResrv.routeName = newResrv.name.replace(/\s+/g, "").toLowerCase();
+  // newResrv.Name = newResrv.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newResrv);
 
