@@ -1,8 +1,8 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -18,31 +18,31 @@ app.use(bodyParser.json());
 let reservations = [
   {
     uniqueID:'01',
-    name: "Allen",
+    name: "allen",
     phoneNumber: "404-400-500",
     email: 'allen@gmail.com'
   },
   {
     uniqueID:'02',
-    name: "Susan",
+    name: "susan",
     phoneNumber: "404-500-400",
     email: 'susan@gmail.com'
   },
   {
     uniqueID:'03',
-    name: "Eddie",
+    name: "eddie",
     phoneNumber: "404-500-600",
     email: 'eddie@gmail.com'
   },
   {
     uniqueID:'04',
-    name: "Yoda",
+    name: "yoda",
     phoneNumber: "400-400-400",
     email: 'yoda@gmail.com'
   },
   {
     uniqueID:'05',
-    name: "Kobe",
+    name: "kobe",
     phoneNumber: "400-900-800",
     email: 'kobe@gmail.com'
   },
@@ -91,6 +91,23 @@ app.get("/api/reservations/:reservation", function(req, res) {
   }
 
   return res.json(false);
+});
+
+// Create New reservation - takes in JSON input
+app.post("/api/reservations", function(req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body-parser middleware
+  var newResrv = req.body;
+  newResrv.routeName = newResrv.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newResrv);
+
+  if (reservations.length < 4){
+    reservations.push(newResrv);
+    res.json(newResrv);
+  } else {
+    waitlist.push(newResrv);
+  }
 });
 
 // Starts the server to begin listening
