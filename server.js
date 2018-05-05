@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+// const $ = require('jquery'); 
 let rorw = true;
 
 // Sets up the Express App
@@ -128,7 +129,13 @@ app.listen(PORT, function() {
 
 // Clear the arrays
 // =============================================================
+
+// $('#clearTables').on('click', clearArray); 
+// document.getElementById('clearTables').addEventListener('click', clearArray); 
+
+
   function clearArray(){
+    console.log('Cleared'); 
     reservations = [];
     reservations.push(waitlist);
   }
