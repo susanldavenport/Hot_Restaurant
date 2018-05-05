@@ -64,8 +64,7 @@
                   </div>
                   </div>
 
-                  <button class="btn waves-effect waves-light" type="submit" name="action
-                  ">Submit
+                  <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit
                     <i class="material-icons right">send</i>
                   </button>
                         
@@ -79,27 +78,23 @@
   </div>
 
   <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-      var reservations = $("#reservations").val().trim();
+    // Question: What does this code do?
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+      var newResrv = {
+        name: $("#name").val().trim(),
+        email: $("#email").val().trim(),
+        phone: $("#phonenumber").val().trim(),
+        uniqueid: $("#uniqueid").val().trim()
+      };
+      console.log(newResrv);
 
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-      $.get("/api/reservations/" + searchedCharacter, function(data) {
-        console.log(data);
-        if (data) {
-          $("#uniqueid").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
-        }
-        else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
-        }
-      });
+      // Question: What does this code do??
+      $.post("/api/reservations", newResrv)
+        .then(function(data) {
+          console.log("reserve.html", data);
+          alert("Adding reservation...");
+        });
     });
   </script>
 
