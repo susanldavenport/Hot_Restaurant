@@ -87,7 +87,26 @@
   document.getElementById('clearTables').addEventListener('click', function() {
     console.log('Clicked'); 
     $.post("/api/clear");
+    // $.get("/api/reservations", function(data) {
+    //   data.forEach(item => {
+    //     console.log(item); 
 
+    //     let reserve = $(`<li>`);
+    //       reserve.addClass("collection-item");
+    //       reserve.append(`<h5> ${item.name} </h5>`);
+    //     $(".table").append(reserve);
+    //   }); //
+    // });
+
+    // $.get("/api/waitlist", function(data) {
+    //   data.forEach(item => {
+    //     console.log(item); 
+    //     let wait = $(`<li>`);
+    //       wait.addClass("collection-item");
+    //       wait.append(`<h5> ${item.name} </h5>`);
+    //     $(".waitList").append(wait);
+    //   }); //
+    // });
   }); 
 
 
