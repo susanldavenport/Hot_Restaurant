@@ -50,7 +50,7 @@
 
   <div class="row">
     <div class="col s12 m12 center">
-      <a class="waves-effect waves-light btn"><i class="material-icons left" id='clearTables'>clear</i>Clear Tables</a>
+      <a class="waves-effect waves-light btn" id='clearTables'><i class="material-icons left">clear</i>Clear Tables</a>
     </div>
   </div>
 
@@ -85,6 +85,7 @@
     });
    
   document.getElementById('clearTables').addEventListener('click', function() {
+    console.log('Clicked'); 
     $.post("/api/clear");
 
   }); 
