@@ -95,7 +95,18 @@
           console.log("reserve.html", data);
           alert("Adding reservation...");
         });
+
+      resWait(rorw); 
     });
+
+  function resWait(rorw) {
+    if (rorw === true){
+    M.toast ({html: 'Your reservation is confirmed! Bon Apetit!'})
+    } else {
+    M.toast({html: 'Bummer! No Tables. To the Waitlist with you!'})
+    }
+    console.log(rorw);
+  };
   </script>
 
 <footer class="page-footer">

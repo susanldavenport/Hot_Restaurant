@@ -138,4 +138,14 @@ app.listen(PORT, function() {
     console.log('Cleared'); 
     reservations = [];
     reservations.push(waitlist);
+    console.log(reservations);
   }
+
+  function resWait() {
+    if (rorw === true){
+    M.toast ({html: 'Your reservation is confirmed! Bon Apetit!'})
+    } else {
+    M.toast({html: 'Bummer! No Tables. To the Waitlist with you!'})
+    }
+    console.log(rorw);
+  };
