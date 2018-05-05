@@ -132,6 +132,7 @@ app.listen(PORT, function() {
 
 // $('#clearTables').on('click', clearArray); 
 // document.getElementById('clearTables').addEventListener('click', clearArray); 
+document.getElementById('clearTables').addEventListener('click', clearArray); 
 
 
   function clearArray(){

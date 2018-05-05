@@ -84,7 +84,10 @@
       }); //
     });
    
-  document.getElementById('clearTables').addEventListener('click', clearArray); 
+  document.getElementById('clearTables').addEventListener('click', function() {
+    $.post("/api/clear");
+
+  }); 
 
 
 
