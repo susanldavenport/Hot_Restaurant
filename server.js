@@ -121,6 +121,17 @@ app.post("/api/reservations", function(req, res) {
   }
 });
 
+app.post("/api/clear", function(req, res) {
+  var newResrv = req.body;
+  console.log('Cleared'); 
+  reservations = [];
+  for (i=0; i<4; i++){
+    reservations.push(waitlist[i]);
+    waitlist[i] = [];
+  }
+  console.log(reservations);
+});
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
@@ -136,11 +147,10 @@ document.getElementById('clearTables').addEventListener('click', clearArray);
 
 
   function clearArray(){
-    console.log('Cleared'); 
-    reservations = [];
-    reservations.push(waitlist);
-    console.log(reservations);
+   
   }
+
+  clearArray();
 
   function resWait() {
     if (rorw === true){
