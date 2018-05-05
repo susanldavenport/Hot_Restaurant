@@ -23,9 +23,9 @@
           <p>Book your set before its gone!</p>
         </div>
         <div class="card-action center">
-          <a href="#">View Tables</a>
-          <a href="#">Home</a>
-          <a href="#">Make a Reservation</a>
+          <a href="/tables">View Tables</a>
+          <a href="/">Home</a>
+          <a href="/reserve">Make a Reservation</a>
         </div>
       </div>
     </div>
@@ -33,30 +33,48 @@
 
   <div class="row">
     <div class="col s6 m6">
-      <ul class="collection with-header">
+      <ul class="collection with-header table">
         <li class="collection-header blue-grey white-text"><h4>Tables</h4></li>
-        <li class="collection-item"><span class="badge">1</span>Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
       </ul>
     </div>
 
     <div class="col s6 m6">
-      <ul class="collection with-header">
+      <ul class="collection with-header waitList">
         <li class="collection-header blue-grey white-text"><h4>Wait List</h4></li>
-        <li class="collection-item "><span class="badge">1</span>Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
       </ul>
     </div>
   </div>
 
 
-
+  <footer class="page-footer">
+    <div class="footer-copyright">
+    <a class="grey-text text-lighten-4 right" href="/api/reservations">All Reservations JSON</a>
+    </div>
+  </footer>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <script type="text/javascript" src = 'server.js'></script>
+  <script type="text/javascript" src = '/server.js'></script>
+
+  <script type="text/javascript">
+    $.get("/api/reservations", function(data) {
+      data.forEach(item => {
+        let reserve = $(`<li>`);
+          reserve.addClass("collection-item");
+          reserve.append(`<h5> ${item.name} </h5>`);
+        $(".table").append(reserve);
+      }); //
+    });
+
+    $.get("/api/waitlist", function(data) {
+      data.forEach(item => {
+        let wait = $(`<li>`);
+          wait.addClass("collection-item");
+          wait.append(`<h5> ${item.name} </h5>`);
+        $(".waitList").append(wait);
+      }); //
+    });
+   
+
+  </script>
 </body>
 </html>
