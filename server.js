@@ -142,7 +142,6 @@ app.listen(PORT, function() {
 // =============================================================
 
 // $('#clearTables').on('click', clearArray); 
-<<<<<<< HEAD
 // document.getElementById('clearTables').addEventListener('click', clearArray); 
 // document.getElementById('clearTables').addEventListener('click', clearArray); 
 
@@ -161,6 +160,3 @@ app.listen(PORT, function() {
     }
     console.log(rorw);
   };
-=======
-// document.getElementById('clearTables').addEventListener('click', clearArray);
->>>>>>> c3fe223b6b06451219c057bebc0a3a81ad6cdb58
