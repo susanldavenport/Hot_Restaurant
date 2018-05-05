@@ -61,6 +61,11 @@ let waitlist = [
 // =============================================================
 
 // Displays all reservations
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Displays all reservations
 app.get("/api/reservations", function(req, res) {
   return res.json(reservations);
 });
