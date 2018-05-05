@@ -7,6 +7,8 @@
   <title>Make a Reservation</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -23,9 +25,9 @@
           <p>Book your set before its gone!</p>
         </div>
         <div class="card-action center">
-          <a href="#">View Tables</a>
-          <a href="#">Home</a>
-          <a href="#">Make a Reservation</a>
+          <a href="/tables">View Tables</a>
+          <a href="/">Home</a>
+          <a href="/reserve">Make a Reservation</a>
         </div>
       </div>
     </div>
@@ -36,4 +38,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script type="text/javascript" src = 'server.js'></script>
 </body>
+
+<footer class="page-footer">
+  <div class="footer-copyright">
+  <a class="grey-text text-lighten-4 right" href="/api/reservations">All Reservations JSON</a>
+  </div>
+</footer>
 </html>
