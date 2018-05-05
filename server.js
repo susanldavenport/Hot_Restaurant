@@ -121,6 +121,11 @@ app.post("/api/reservations", function(req, res) {
   }
 });
 
+app.post("/clear", function(req, res) {
+  var newResrv = req.body;
+  reservations = [];
+});
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
@@ -137,9 +142,14 @@ app.listen(PORT, function() {
   function clearArray(){
     console.log('Cleared'); 
     reservations = [];
-    reservations.push(waitlist);
+    for (i=0; i<4; i++){
+      reservations.push(waitlist[i]);
+      waitlist[i] = [];
+    }
     console.log(reservations);
   }
+
+  clearArray();
 
   function resWait() {
     if (rorw === true){
