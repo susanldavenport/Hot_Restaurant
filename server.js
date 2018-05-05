@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+let rorw = true;
 
 // Sets up the Express App
 // =============================================================
@@ -109,9 +110,11 @@ app.post("/api/reservations", function(req, res) {
   console.log(newResrv);
 
   if (reservations.length < 4){
+    rorw = true;
     reservations.push(newResrv);
     res.json(newResrv);
   } else {
+    rorw = false;
     waitlist.push(newResrv);
     console.log(waitlist);
   }
@@ -122,3 +125,10 @@ app.post("/api/reservations", function(req, res) {
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+// Clear the arrays
+// =============================================================
+  function clearArray(){
+    reservations = [];
+    reservations.push(waitlist);
+  }
