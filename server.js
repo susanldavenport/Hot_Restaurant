@@ -142,4 +142,21 @@ app.listen(PORT, function() {
 // =============================================================
 
 // $('#clearTables').on('click', clearArray); 
-// document.getElementById('clearTables').addEventListener('click', clearArray);
+// document.getElementById('clearTables').addEventListener('click', clearArray); 
+// document.getElementById('clearTables').addEventListener('click', clearArray); 
+
+
+  function clearArray(){
+   
+  }
+
+  clearArray();
+
+  function resWait() {
+    if (rorw === true){
+    M.toast ({html: 'Your reservation is confirmed! Bon Apetit!'})
+    } else {
+    M.toast({html: 'Bummer! No Tables. To the Waitlist with you!'})
+    }
+    console.log(rorw);
+  };
