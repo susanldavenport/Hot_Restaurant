@@ -65,14 +65,14 @@ app.get("/api/reservations", function(req, res) {
   return res.json(reservations);
 });
 
-// Displays a single character, or returns false
+// Displays a single reservation, or returns false
 app.get("/api/reservations/:reservation", function(req, res) {
-  var chosen = req.params.character;
+  var chosen = req.params.reservation;
 
   console.log(chosen);
 
   for (var i = 0; i < reservations.length; i++) {
-    if (chosen === reservations[i].routeName) {
+    if (chosen === reservations[i].name) {
       return res.json(reservations[i]);
     }
   }
