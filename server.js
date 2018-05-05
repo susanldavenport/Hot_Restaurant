@@ -121,7 +121,7 @@ app.post("/api/reservations", function(req, res) {
   }
 });
 
-app.post("/clear", function(req, res) {
+app.post("/api/clear", function(req, res) {
   var newResrv = req.body;
   console.log('Cleared'); 
   reservations = [];
