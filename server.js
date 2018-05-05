@@ -78,6 +78,12 @@ app.get("/api/reservations", function(req, res) {
   return res.json(reservations);
 });
 
+// Displays all waitlist
+app.get("/api/waitlist", function(req, res) {
+  return res.json(waitlist);
+});
+
+
 // Displays a single reservation, or returns false
 app.get("/api/reservations/:reservation", function(req, res) {
   var chosen = req.params.reservation;
@@ -107,6 +113,7 @@ app.post("/api/reservations", function(req, res) {
     res.json(newResrv);
   } else {
     waitlist.push(newResrv);
+    console.log(waitlist);
   }
 });
 
